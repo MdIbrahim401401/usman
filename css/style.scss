@@ -5,15 +5,17 @@
 
 }
 .nav{
-    width: 750px;
+    width: 1050px;
     margin: 20px auto;
     list-style: none;
     display: flex;
     background: #000;
     font-family: system-ui;
-    >li{
+    font-size: 30px;
+    li{
         width: 100%;
-        >a{
+        position: relative;
+        a{
             text-decoration: none;
             text-align: center;
             color: #fff;
@@ -21,7 +23,35 @@
             line-height: 50px;
         }
         &:hover{
-            background: teal;
+            &::before{
+                width: 100%;
+            }
+            >.snav{
+                top: 100%;
+                visibility: visible;
+            }
+        }
+        &::before{
+            content: "";
+            width: 0%;
+            height: 6px;
+            background: tomato;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transition: 0.5s;
+            transform: translate(-50%);
+        }
+        .snav{
+            width: 100%;
+            list-style: none;
+            position: absolute;
+            top: 0%;
+            left: 0;
+            background: #000;
+            visibility: hidden;
+            transition: 0.5s;
+            z-index: -10;
         }
     }
 }
